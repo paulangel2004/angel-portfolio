@@ -1,0 +1,118 @@
+/* style.css */
+
+/* Google Fonts - Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+/* Tailwind CSS - This assumes you're using Tailwind CLI/PostCSS to process it.
+   If not, for a quick setup, you'd put the CDN link in each HTML file's <head>.
+   For a more robust setup with Flask, you'd ideally compile Tailwind.
+   For this example, I'll include the CDN directly in HTML files for simplicity,
+   but good practice is to compile.
+*/
+
+body {
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+    background-color: #f8fafc; /* Light blue-gray background */
+    color: #334155; /* Darker text */
+}
+
+/* Custom scrollbar for aesthetics */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #e2e8f0;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: #94a3b8;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}
+
+.hero-bg {
+    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%); /* Blue gradient */
+}
+
+.section-heading {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 8px;
+}
+.section-heading::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60%;
+    height: 3px;
+    background-color: #3b82f6; /* Accent blue */
+    border-radius: 2px;
+}
+
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    background-color: #3b82f6;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 9999px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.btn-primary:hover {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: #e2e8f0;
+    color: #3b82f6;
+    padding: 10px 20px;
+    border-radius: 9999px;
+    border: 1px solid #3b82f6;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+.btn-secondary:hover {
+    background-color: #3b82f6;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Base styles for consistent layout across pages */
+.page-container {
+    padding-top: 6rem; /* To account for fixed navbar */
+}
+
+/* Animations (from previous example) */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: slideInUp 0.8s ease-out forwards;
+    opacity: 0; /* Start invisible */
+}
+
+.animate-fade-in-up.delay-200 { animation-delay: 0.2s; }
+.animate-fade-in-up.delay-400 { animation-delay: 0.4s; }
